@@ -75,7 +75,7 @@ class TestAccountService(TestCase):
     ######################################################################
 
     def test_index(self):
-        """It should get 200_OK from the Home Page."""
+        """It should get 200_OK from the Home Page"""
         response = self.client.get("/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
