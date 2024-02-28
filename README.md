@@ -133,3 +133,15 @@ You can now perform Tekton development locally, just like in the Cloud IDE lab e
 Licensed under the Apache License. See [LICENSE](LICENSE)
 
 ## <h3 align="center"> © IBM Corporation 2022. All rights reserved. <h3/>
+
+
+# SOURCES
+
+**Github : [ibm-developer-skills-network/aolwx-devops-capstone-template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template)**
+## Coursera links :
+
+**Course : [DevOps Capstone Project](https://www.coursera.org/learn/devops-capstone-project/home/week/1)**
+
+**Module : [Week 1 : Capstone Overview](https://www.coursera.org/learn/devops-capstone-project/supplement/wlYVl/capstone-overview)**
+
+**Specialization : [IBM DevOps and Software Engineering Professional Certificate](https://www.coursera.org/professional-certificates/devops-and-software-engineering)**
