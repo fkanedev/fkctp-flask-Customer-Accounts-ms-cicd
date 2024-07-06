@@ -147,21 +147,30 @@ This backend project is primarily organized around the Flask framework. The dire
 
 ```plaintext
 .
+├── github/
+│   └── workflows/
+│   │   └── ci-buil.yml
+│   └── ...
+├── deploy/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── ...
 ├── service/
-│   ├── __init__.py
+│   ├── common/
 │   ├── models.py
 │   ├── routes.py
 │   └── ...
+├── tekton/
+│   ├── pipeline.yaml
+│   ├── pvc.yaml
+│   └── tasks.yaml
 ├── tests/
+│   ├── factories.py
 │   ├── test_models.py
 │   ├── test_routes.py
 │   └── ...
-├── features/
-│   ├── steps/
-│   ├── environment.py
-│   └── ...
+├── README.md
 ├── requirements.txt
-├── config.py
 └── ...
 ```
 
@@ -170,15 +179,16 @@ This backend project is primarily organized around the Flask framework. The dire
 PostgreSQL serves as the database, accessible through the connection URI specified in the environment variables.SQLAlchemy acts as the Object Relational Mapper (ORM) for interacting with the database. Integrated with Flask through Flask-SQLAlchemy, it provides an interface to create and manage database tables and perform CRUD (Create, Read, Update, Delete) operations with Python.
 ### Data Model (About the Customer Account Model)
 
-The data model for our account catalog is designed to store essential information about each account available in our eCommerce application. Here's an overview of the main features of the data model:
+The data model for our customer account is designed to store essential information about each customer registred with the microservice in the database. Here's an overview of the main features of the data model:
 
-- **Account Name**: The unique name of the account.
-- **Description**: A brief description of the account to help users understand its features.
-- **Category**: The category to which the account belongs, facilitating navigation and search for users.
-- **Availability**: Indicates whether the account is currently available for purchase.
-- **Price**: The price of the account.
-
-This data model is designed to provide a flexible structure while ensuring that all necessary information is easily accessible for users of our application.
+| Name | Type | Optional |
+|------|------|----------|
+| id | Integer| False |
+| name | String(64) | False |
+| email | String(64) | False |
+| address | String(256) | False |
+| phone_number | String(32) | True |
+| date_joined | Date | False |
 
 ## Testing <a name="testing"></a>
 
@@ -195,23 +205,6 @@ nosetests --with-coverage --cover-erase --cover-package=service
 - `--with-coverage`: Activates the coverage plugin.
 - `--cover-erase`: Clears previous coverage data.
 - `--cover-package=service`: Measures coverage for the service package only.
-
-### Behavior Tests :
-
-In one terminal, start the application using:
-
-```bash
-honcho start
-```
-
-In another terminal, execute the BDD scenarios with:
-
-```bash
-behave
-```
-
-Ensure there are seven scenarios (Read, Update, Delete an Account, List all Accounts, List by Category, List by Available, List by Name) and that all pass.
-
 
 ## Deployment <a name="deployment"></a>
 
@@ -258,13 +251,13 @@ The containerized deployment strategy involves packaging the application and its
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ibm-developer-skills-network/xgcyk-tdd-bdd-final-project-template.git
+git clone https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd xgcyk-tdd-bdd-final-project-template
+cd fkctp-flask-Customer-Accounts-ms-cicd
 ```
 
 3. Build the Docker image:
@@ -304,14 +297,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 ### Contribution and Support :
 
 Contributions are welcome. Please refer to the `CONTRIBUTING.md` file for more information on how to contribute.
-
-# SOURCES
-
-**Github : [ibm-developer-skills-network/aolwx-devops-capstone-template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template)**
-## Coursera links :
-
-**Course : [DevOps Capstone Project](https://www.coursera.org/learn/devops-capstone-project/home/week/1)**
-
-**Module : [Week 1 : Capstone Overview](https://www.coursera.org/learn/devops-capstone-project/supplement/wlYVl/capstone-overview)**
-
-**Specialization : [IBM DevOps and Software Engineering Professional Certificate](https://www.coursera.org/professional-certificates/devops-and-software-engineering)**
