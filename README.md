@@ -19,9 +19,11 @@ This project involves the development of a microservice for managing customer ac
 5. [Development](#development)
 6. [Testing](#testing)
 7. [Deployment](#deployment)
-8. [Sources](#sources)
-9. [License](#license)
-10. [Contact](#contact)
+8. [CI/CD Pipeline](#ci-cd-pipeline)
+9. [Security](#security)
+10. [Sources](#sources)
+11. [License](#license)
+12. [Contact](#contact)
 
 ## Introduction <a name="introduction"></a>
 
@@ -263,15 +265,107 @@ cd fkctp-flask-Customer-Accounts-ms-cicd
 3. Build the Docker image:
 
 ```bash
-docker build -t account-catalog .
+docker build -t accounts .
 ```
 
 4. Run the Docker container:
 
 ```bash
-docker run -d -p 5000:5000 --name account-catalog account-catalog
+docker run -d -p 5000:5000 --name accounts accounts
 ```
 
+### Deploy to Kubernetes :
+
+The following steps were undertaken to deploy the application to Kubernetes:
+
+1. **Set up Kubernetes Cluster:**
+   - Provisioned a Kubernetes cluster using a suitable cloud provider.
+
+2. **Create Docker Image:**
+   - Built and pushed the application's Docker image to a container registry (e.g., Docker Hub).
+
+3. **Create Kubernetes Deployment:**
+   - Defined a Kubernetes Deployment YAML file ([deployment.yaml](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/blob/main/deploy/deployment.yaml)) and applied its configuration to the cluster.
+
+4. **Create Kubernetes Service:**
+   - Defined a Kubernetes Service YAML file ([service.yaml](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/blob/main/deploy/service.yaml)) and applied its configuration to the cluster.
+
+5. **Verify Deployment:**
+   - Verified the application’s deployment by checking pod and service statuses.
+   - Accessed the application using its service endpoint to ensure successful deployment.
+
+
+## CI/CD Pipeline <a name="ci-cd-pipeline"></a>
+
+### Continuous Integration (CI) with GitHub Actions
+
+The codebase comes with unit tests for the provided endpoints. The goal is to set up CI pipelines using GitHub Actions to automate the linting and testing processes. To achieve this, we create a GitHub Actions workflow that triggers whenever changes are pushed to the repository.
+
+Check the content of the [`github/workflows/workflow.yml`](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/blob/main/.github/workflows/ci-build.yml) file for the CI pipeline definition. Initially, the workflow sets up the PostgreSQL service using the postgres:alpine image to create a database instance. This setup includes configuring the database with a password and a test database, and verifying the service's health before proceeding to the build steps. 
+Next, the workflow performs several steps:
+
+- **Checkout:** Uses the GitHub Action to check out the repository.
+- **Install dependencies:** Installs the necessary Python dependencies listed in `requirements.txt`.
+- **Lint with flake8:** Runs `flake8` to ensure code quality and check for syntax errors.
+- **Run unit tests with nose:** Executes unit tests using `nose` with detailed reporting and coverage information.
+
+You can verify the success of the workflows by checking the "build passing" badge at the beginning of the README or by navigating to the "Actions" tab in the GitHub repository to see detailed execution logs.
+
+## Continuous Deployment (CD)
+
+### Build an Automated CD DevOps Pipeline Using Tekton and OpenShift
+
+The following steps were undertaken to build an automated CD DevOps pipeline using Tekton and OpenShift:
+
+1. **Create a Tekton Pipeline:**
+   - Defined tasks and pipeline resources in YAML files: [tekton/pvc.yaml](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/blob/main/tekton/pvc.yaml), [tekton/tasks.yaml](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/blob/main/tekton/tasks.yaml) and [tekton/pipeline.yaml](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/blob/main/tekton/pipeline.yaml).
+
+2. **Install Tekton CLI (tkn):**
+   - Used `tkn` for managing pipelines.
+
+3. **Create and add tasks for CD Pipeline a Build Task:**
+   - Lint task (flake8) linter.
+   - Tests task (Nose) to run unit tests with PyUnit.
+   - Added a Tekton Build Task (buildah) to build the application: included steps to clone the repository and build the Docker image.
+
+4. **Create a Deployment Task:**
+   - Wrote a Tekton task to deploy the application.
+   - Used `kubectl` commands within the task to deploy to Kubernetes.
+
+5. **Create an Image Resource:**
+   - Defined an image resource for the output.
+   - Specified the target container registry.
+
+6. **Create a Pipeline:**
+   - Combined tasks into a pipeline definition.
+   - Linked tasks using pipeline resources.
+   - Run the Pipeline using Tekton CLI.
+
+7. **Monitor Pipeline Runs:**
+   - Used `tkn` to monitor the status of pipeline runs.
+   - Checked logs for each task to debug issues.
+
+## Security <a name="security"></a>
+
+To enhance the security of the application, the following practices were implemented:
+
+- Security Headers:
+
+  - Utilized Flask-Talisman to set HTTP security headers.
+  - Configured headers like :
+    - Content Security Policy (CSP),
+    - Strict-Transport-Security (HSTS),
+    - X-Content-Type-Options,
+    - X-Frame-Options,
+    - Referrer-Policy
+    to mitigate various web vulnerabilities. Together, they enhance security by protecting against XSS (Cross-Site Scripting) attacks, ensuring secure usage of HTTPS connections, preventing MIME-sniffing and clickjacking attacks and controlling the disclosure of referrer information.
+
+- CORS Policies:
+
+  - Integrated Flask-CORS to handle Cross-Origin Resource Sharing (CORS) policies.
+  - Configured CORS to allow or restrict resources based on the client's origin, ensuring that only trusted domains can interact with the APIs.
+
+These measures help protect against common web security threats and ensure that the application adheres to best practices for secure code.
 ## Sources <a name="source"></a>
 
 - **Template : [ibm-developer-skills-network/aolwx-devops-capstone-template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template)**
