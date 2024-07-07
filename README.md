@@ -1,5 +1,6 @@
 ![Python](https://img.shields.io/badge/Python-3.8-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-2.2.3-b5f05d.svg)
+[![CI Build](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/actions/workflows/ci-build.yml/badge.svg)](https://github.com/fkanedev/fkctp-flask-Customer-Accounts-ms-cicd/actions/workflows/ci-build.yml)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0.0-orange.svg)
 ![Factory Boy](https://img.shields.io/badge/Factory--Boy-3.2.1-brightgreen.svg)
 ![Powered by PostgreSQL](https://img.shields.io/badge/Powered%20by-PostgreSQL-336791.svg)
