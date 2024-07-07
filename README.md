@@ -4,7 +4,7 @@
 ![Factory Boy](https://img.shields.io/badge/Factory--Boy-3.2.1-brightgreen.svg)
 ![Powered by PostgreSQL](https://img.shields.io/badge/Powered%20by-PostgreSQL-336791.svg)
 ![Coverage Status](https://img.shields.io/badge/Coverage-95%25-green)
-![Code Security](https://img.shields.io/badge/code%20security-A%2B-red)
+![Code Security](https://img.shields.io/badge/Implement-Code%20security-red)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 # Customer Account Microservice
