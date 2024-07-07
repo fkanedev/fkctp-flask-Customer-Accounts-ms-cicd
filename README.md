@@ -358,6 +358,7 @@ To enhance the security of the application, the following practices were impleme
     - X-Content-Type-Options,
     - X-Frame-Options,
     - Referrer-Policy
+    
     to mitigate various web vulnerabilities. Together, they enhance security by protecting against XSS (Cross-Site Scripting) attacks, ensuring secure usage of HTTPS connections, preventing MIME-sniffing and clickjacking attacks and controlling the disclosure of referrer information.
 
 - CORS Policies:
