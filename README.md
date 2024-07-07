@@ -4,11 +4,12 @@
 ![Factory Boy](https://img.shields.io/badge/Factory--Boy-3.2.1-brightgreen.svg)
 ![Powered by PostgreSQL](https://img.shields.io/badge/Powered%20by-PostgreSQL-336791.svg)
 ![Coverage Status](https://img.shields.io/badge/Coverage-95%25-green)
+![Code Security](https://img.shields.io/badge/code%20security-A%2B-red)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 # Customer Account Microservice
 
-This project involves the development of a microservice for managing customer accounts using Test Driven Development (TDD). I undertook this project as part of my training in the [IBM DevOps and Software Engineering Professional Certificate](https://www.coursera.org/professional-certificates/devops-and-software-engineering). It highlights the practical application of skills such as TDD, Continuous Integration (CI), Continuous Deployment (CD), security headers and cross-origin resource sharing (CORS) policies, acquired during the training. To achieve this, I used [this template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template) provided by IBM Developer Skills Network.
+This project involves the development of a microservice for managing customer accounts using Test Driven Development (TDD). I undertook this project as part of my training in the [IBM DevOps and Software Engineering Professional Certificate](https://www.coursera.org/professional-certificates/devops-and-software-engineering). It highlights the practical application of skills acquired during the training such as TDD, Continuous Integration (CI), Continuous Deployment (CD), security headers and cross-origin resource sharing (CORS) policies. To achieve this, I used [this template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template) provided by IBM Developer Skills Network.
 
 ## Table of Contents
 
