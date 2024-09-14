@@ -12,6 +12,8 @@
 
 This project involves the development of a microservice for managing customer accounts using Test Driven Development (TDD). I undertook this project as part of my training in the [IBM DevOps and Software Engineering Professional Certificate](https://www.coursera.org/professional-certificates/devops-and-software-engineering). It highlights the practical application of skills acquired during the training such as TDD, Continuous Integration (CI), Continuous Deployment (CD), security headers and cross-origin resource sharing (CORS) policies. To achieve this, I used [this template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template) provided by IBM Developer Skills Network.
 
+**Topics:** `python`, `flask`, `microservices`, `tdd`, `bdd`, `test-driven-development`, `continuous-integration`, `continuous-deployment`, `ci-cd`, `github-actions`, `tekton`, `kubernetes`, `docker`, `postgreSQL`, `sqlalchemy`, `api`, `restful-api`, `security-headers`, `cors`, `cloud-native`, `devops`, `ibm-cloud`, `openShift`.
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -369,7 +371,7 @@ To enhance the security of the application, the following practices were impleme
   - Configured CORS to allow or restrict resources based on the client's origin, ensuring that only trusted domains can interact with the APIs.
 
 These measures help protect against common web security threats and ensure that the application adheres to best practices for secure code.
-## Sources <a name="source"></a>
+## Sources <a name="sources"></a>
 
 - **Template : [ibm-developer-skills-network/aolwx-devops-capstone-template](https://github.com/ibm-developer-skills-network/aolwx-devops-capstone-template)**
 - **Useful links** :
