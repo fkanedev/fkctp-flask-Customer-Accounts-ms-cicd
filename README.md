@@ -382,7 +382,7 @@ These measures help protect against common web security threats and ensure that 
 
 ## License <a name="license"></a>
 
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
+This project is licensed under the MIT License. See the [LICENSE](/LICENSE) file for more information.
 
 ## Contact <a name="contact"></a>
 
@@ -395,4 +395,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ### Contribution and Support :
 
-Contributions are welcome. Please refer to the `CONTRIBUTING.md` file for more information on how to contribute.
+Contributions are welcome. Please refer to the [CONTRIBUTING](/CONTRIBUTING.md) file for more information on how to contribute.
